@@ -1,0 +1,5 @@
+misc/bin/*
+
+config/debug/*
+config/release/*
+config/test/*

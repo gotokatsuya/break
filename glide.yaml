@@ -1,0 +1,15 @@
+package: github.com/gotokatsuya/break
+import:
+- package: github.com/BurntSushi/toml
+- package: github.com/Sirupsen/logrus
+- package: github.com/evalphobia/eurekache
+- package: github.com/go-sql-driver/mysql
+- package: github.com/gotokatsuya/gosquare
+  subpackages:
+  - /dispatcher
+  - service/venues
+- package: github.com/jinzhu/gorm
+- package: github.com/labstack/echo
+  subpackages:
+  - engine/fasthttp
+  - middleware

@@ -1,0 +1,10 @@
+[database]
+driver = "mysql"
+source = "root@tcp(localhost:3306)/dev_break?charset=utf8mb4&parseTime=True&loc=UTC"
+
+[time]
+zone = "Asia/Tokyo"
+
+[foursquare]
+client_id = ""
+client_secret = ""
