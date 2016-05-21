@@ -1,4 +1,4 @@
-# Spot API
+# Tour API
 
 ## `POST /api/tour`
 
@@ -33,30 +33,6 @@ Gets user's tours.
 * Content-Type: "application/json"
 * Authorization: "AccessToken test-1"
 * ?user_id=1
-===
-
-* Status: `200`
-
-* Content-Type: `application/json; charset=utf-8`
-
-```
-{
-  "instances": [
-    {
-      "id": 1,
-      "name": "tour",
-      "photo_url": ""
-    }
-  ]
-}
-```
-
-## `GET /api/tour`
-
-Gets near tours.
-
-* Content-Type: "application/json"
-* Authorization: "AccessToken test-1"
 * ?lat=40.66&lng=-74
 ===
 
