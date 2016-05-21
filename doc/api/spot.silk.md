@@ -27,7 +27,6 @@ Creates spot.
 
 ```
 null
-}
 ```
 
 ## `GET /api/spot`
@@ -38,6 +37,7 @@ Gets user's spots.
 * Authorization: "AccessToken test-1"
 * ?start_visit_time=123456788&end_visit_time=123456790
 * ?tour_id=1
+
 ===
 
 * Status: `200`

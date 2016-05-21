@@ -23,7 +23,6 @@ Creates tour.
 
 ```
 null
-}
 ```
 
 ## `GET /api/tour`
@@ -34,6 +33,7 @@ Gets user's tours.
 * Authorization: "AccessToken test-1"
 * ?user_id=1
 * ?lat=40.66&lng=-74
+
 ===
 
 * Status: `200`
