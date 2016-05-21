@@ -17,6 +17,7 @@ var cache *eurekache.Eurekache
 
 func init() {
 	gob.Register(&venues.ExploreResponse{})
+	gob.Register(&venues.PhotosResponse{})
 	initCache()
 }
 
@@ -49,5 +50,22 @@ func GetExplore(lat, lng string) (*venues.ExploreResponse, error) {
 		return nil, err
 	}
 	cache.Set(latLng, res)
+	return res, nil
+}
+
+func GetPhotos(venueID string) (*venues.PhotosResponse, error) {
+	cachedRes := new(venues.PhotosResponse)
+	if ok := cache.Get(venueID, cachedRes); ok {
+		return cachedRes, nil
+	}
+	foursquareConfig := config.GetFoursquare()
+	client := dispatcher.NewClientWithParam(foursquareConfig.ClientID, foursquareConfig.ClientSecret)
+	req := venues.NewPhotosRequest()
+	req.VenueID = venueID
+	res, err := venues.Photos(client, req)
+	if err != nil {
+		return nil, err
+	}
+	cache.Set(venueID, res)
 	return res, nil
 }

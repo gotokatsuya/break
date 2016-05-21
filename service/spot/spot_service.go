@@ -1,6 +1,7 @@
 package spot
 
 import (
+	"fmt"
 	"net/url"
 	"path"
 
@@ -39,16 +40,18 @@ func getSpotsByFoursquare(userID, visitTime int64, lat, lng float64) ([]*spotmod
 			spot.CategoryName = category.Name
 			break
 		}
-		for _, group := range venue.Photos.Groups {
-			for _, item := range group.Items {
-				u, err := url.Parse(item.Prefix)
-				if err != nil {
-					return nil, err
-				}
-				u.Path = path.Join(u.Path, item.Suffix)
-				spot.PhotoURL = u.String()
-				break
+		photosResponse, err := foursquare.GetPhotos(venue.ID)
+		if err != nil {
+			return nil, err
+		}
+		for _, photo := range photosResponse.GetPhotos() {
+			u, err := url.Parse(photo.Prefix)
+			if err != nil {
+				return nil, err
 			}
+			u.Path = path.Join(u.Path, fmt.Sprintf("%dx%d", photo.Width, photo.Height), photo.Suffix)
+			spot.PhotoURL = u.String()
+			break
 		}
 		spots[i] = spot
 	}
