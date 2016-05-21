@@ -1,5 +1,5 @@
-misc/bin/*
+misc/bin/break
 
-config/debug/*
-config/release/*
-config/test/*
+config/debug/config.tml
+config/release/config.tml
+config/test/config.tml
