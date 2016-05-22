@@ -18,7 +18,7 @@ func CreateTour(ctx echo.Context) error {
 	if err := service.CreateTour(ctx, request); err != nil {
 		return err
 	}
-	return ctx.JSON(http.StatusCreated, nil)
+	return ctx.JSON(http.StatusCreated, map[string]interface{}{})
 }
 
 // GetTour ...

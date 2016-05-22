@@ -18,7 +18,7 @@ func CreateSpot(ctx echo.Context) error {
 	if err := service.CreateSpot(ctx, request); err != nil {
 		return err
 	}
-	return ctx.JSON(http.StatusCreated, nil)
+	return ctx.JSON(http.StatusCreated, map[string]interface{}{})
 }
 
 // GetSpot ...
